@@ -14,7 +14,7 @@ const page = () => {
       if (error) {
         console.error(error);
       }
-      setUsers(data);
+      setUsers(data as User[]);
     };
     fetchUsers();
   }, []);
