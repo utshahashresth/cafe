@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cafe
+
+A Next.js 16 + TypeScript starter for a cafe website, wired to a **Supabase** backend.
+
+> **Status:** early stage. The Supabase client and a `/users` page that reads from a `users` table are working scaffolding; the cafe pages themselves are still to be built.
+
+## Tech Stack
+
+- Next.js 16 (App Router), React 19, TypeScript
+- Tailwind CSS
+- Supabase (`@supabase/supabase-js`)
 
 ## Getting Started
 
-First, run the development server:
+```bash
+git clone https://github.com/utshahashresth/cafe.git
+cd cafe
+npm install
+```
+
+Copy the example env file and add your own Supabase project values:
+
+```bash
+cp .env.example .env.local
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>. The `/users` route lists rows from a `users` table (`id`, `name`) in your Supabase project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+app/
+  page.tsx          # Home page
+  users/page.tsx    # Reads and lists rows from Supabase
+lib/supabase.ts     # Supabase client
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Roadmap
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Menu, categories and item pages backed by Supabase tables
+- Ordering / reservation flow
+- Authentication and row-level security policies
